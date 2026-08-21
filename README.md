@@ -1,96 +1,73 @@
 <p align="center">
-  <img src="./logo.png" alt="i-have-adhd" width="140" />
+  <img src="./logo.png" alt="i-think-different" width="140" />
 </p>
 <p align="center">
-  <strong align="center">ADHD-friendly outputs. No ADHD diagnosis needed!</strong>
+  <strong>Shaped for an ADHD brain. Clean summary first, wins celebrated, detail at the level you ask for.</strong>
 </p>
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/tkarcheski/i-think-different?style=flat" alt="License"></a>
 </p>
-
-<p align="center">
-  <strong title="English" aria-label="English">🇬🇧</strong> ·
-  <a href=".github/readme/README.zh-CN.md" title="简体中文" aria-label="简体中文">🇨🇳</a> ·
-  <a href=".github/readme/README.pt-BR.md" title="Português (Brasil)" aria-label="Português (Brasil)">🇧🇷</a> ·
-  <a href=".github/readme/README.ja.md" title="日本語" aria-label="日本語">🇯🇵</a> ·
-  <a href=".github/readme/README.vi.md" title="Tiếng Việt" aria-label="Tiếng Việt">🇻🇳</a> ·
-  <a href=".github/readme/README.ko.md" title="한국어" aria-label="한국어">🇰🇷</a>
-</p>
-
-
-## Install
-
-🔗 [Installation Instructions](INSTALL.md)
 
 ## What it does
 
-A skill for your coding assistant that stops it from burying the answer. Action first. Steps numbered. No "Hope this helps!"
+An [OpenCode](https://opencode.ai) skill that stops the assistant from burying the answer. Clean summary first. Wins celebrated. Detail at the level you ask for — calm, normal, or deep. No "Hope this helps!"
 
+## Install
 
-## What changes
+```bash
+git clone https://github.com/tkarcheski/i-think-different
+cd i-think-different
+```
 
+Run OpenCode in the repo: the `opencode.json` plugin registers the skill and the `/i-think-different` command. In a new session, type:
 
-<table>
-<tr>
-<td width="50%">
+```
+/i-think-different
+```
 
-## Before
+The ruleset applies to every response for the rest of the session. Say `stop` to turn it off.
 
-> Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the token verification, and the cookie handling. Looking at `src/auth.ts`, the `verifyToken` function (around lines 42-58) seems to be using an older `jsonwebtoken` API. One approach would be to update the package and rewrite that function. After making the change, you'd want to run the auth tests to confirm nothing breaks. By the way, you might also want to look at your dependency versions overall. Hope this helps! Let me know if you want to dig deeper.
+### Always-on (optional)
 
-</td>
+```bash
+touch ~/.config/opencode/.i-think-different-always
+```
 
-<td width="50%">
+The full ruleset is appended to the system prompt every turn. Remove the file to turn always-on off. `stop` pauses it for one session only.
 
-## After
+## The detail dial
 
-> Run `npm install jsonwebtoken@latest`, then edit `src/auth.ts:42`.
->
-> 1. Open `src/auth.ts`
-> 2. Replace `verifyToken` (lines 42–58) with the snippet below
-> 3. Run `npm test -- auth.spec.ts`
->
-> Next: paste the first failing line if any test fails.
+| Level | You get |
+| --- | --- |
+| **calm** | The minimum that still works: clean summary, one next action. |
+| **normal** | The default: summary, bounded steps, one next action. |
+| **deep** | Full detail: steps, trade-offs, edge cases, why. |
 
-</td>
-</tr>
-</table>
-
+Name a level any time; it sticks until you name another.
 
 ## The rules
 
-10 rules. Full text in [SKILL.md](./skills/i-have-adhd/SKILL.md).
+10 rules. Full text in [SKILL.md](./skills/i-think-different/SKILL.md).
 
-1. Lead with the next action.
-2. Number multi-step tasks.
-3. End with one concrete next step.
-4. Suppress tangents.
-5. Restate state every turn.
-6. Specific time estimates (minutes, not "a bit").
-7. Make wins visible.
-8. Matter-of-fact errors.
-9. Cap lists at 5 items.
+1. Clean summary first.
+2. Celebrate wins.
+3. Detail at the level asked.
+4. Number multi-step work.
+5. End with one concrete next action.
+6. Suppress tangents.
+7. Restate state every turn.
+8. Specific time estimates.
+9. Matter-of-fact errors.
 10. No preamble. No recap. No closers.
 
 ## Tune it
 
-Fork, edit `skills/i-have-adhd/SKILL.md`, then swap your copy in:
-
-```bash
-claude plugin uninstall i-have-adhd            # drop the upstream copy first:
-claude plugin marketplace remove i-have-adhd   # fork and upstream share both names
-claude plugin marketplace add <your-username>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
-```
-
-Restart Claude Code, then re-invoke `/i-have-adhd`.
+Fork, edit `skills/i-think-different/SKILL.md` — it is the single source of truth for the ruleset.
 
 ## Credits
 
-Loosely based on *The Adult ADHD Tool Kit* by J. Russell Ramsay and Anthony L. Rostain. Adapted for how an LLM should respond, not how a human should organize their day.
+Forked from [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd). Loosely based on *The Adult ADHD Tool Kit* by J. Russell Ramsay and Anthony L. Rostain.
 
 ## License
 
 MIT.
-
-Star ⭐ if it saved you one scroll past one "Great question!"
