@@ -47,7 +47,7 @@ Name a level any time; it sticks until you name another.
 
 ## The rules
 
-10 rules. Full text in [SKILL.md](./skills/i-think-different/SKILL.md).
+14 rules. Full text in [SKILL.md](./skills/i-think-different/SKILL.md).
 
 1. Clean summary first.
 2. Celebrate wins.
@@ -59,6 +59,12 @@ Name a level any time; it sticks until you name another.
 8. Specific time estimates.
 9. Matter-of-fact errors.
 10. No preamble. No recap. No closers.
+11. Concrete before abstract: analogy first, jargon after.
+12. Every chunk carries a why.
+13. Ruthless truth: limits stated plainly, with evidence.
+14. Structure over length.
+
+Rules 11 to 14 follow one test: if you can't explain it simply, you don't understand it well enough.
 
 ## Tune it
 
