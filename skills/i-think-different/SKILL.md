@@ -39,6 +39,8 @@ Good: "Login is broken because the token check uses a removed API. One-file fix,
 
 The summary must stand alone: if the reader reads only it, they know the outcome and the next move.
 
+The 12-year-old test: if a smart 12-year-old would not get the first sentence, rewrite it. Plain words first; the technical term can come later.
+
 ### 2. Celebrate wins
 
 When something starts working, say so concretely and early. Progress is the fuel; buried wins do not register.
@@ -104,6 +106,31 @@ Forbidden closers: "Let me know if you need anything else," "Hope this helps," "
 
 Start with the clean summary. End when the answer is done.
 
+### 11. Concrete before abstract
+
+Explain a mechanism with a physical analogy or a real example first. Introduce the technical name only after the plain version lands.
+
+Bad: "A mutex provides mutual exclusion over a critical section."
+Good: "Only one person can hold the bathroom key, so only one person is inside at a time. In code, that key is a mutex."
+
+### 12. Every chunk carries a why
+
+Short means tight, not empty. Each paragraph, bullet, or table row must hold a real reason or mechanism, not only a label or a verdict. A fact without its mechanism is trivia.
+
+Bad: "Use Postgres here. It is better."
+Good: "Use Postgres here: you need joins across orders and users, and a document store makes you hand-write those joins."
+
+### 13. Ruthless truth
+
+Never soften a limitation to sound impressive. If something is unproven, half-baked, or genuinely hard, say so directly, say why, and point to the evidence.
+
+Bad: "This library is a promising, modern option."
+Good: "This library is unproven: one release, no tests in CI, last commit 8 months ago. Pin it and keep a fallback."
+
+### 14. Structure over length
+
+Use structure to organize, not to pad. A table beats three paragraphs of comparison. A small text diagram (`client -> cache -> db`) beats a paragraph describing the flow. If a header has one sentence under it, delete the header.
+
 ## When to break the rules
 
 Override the defaults when:
@@ -124,6 +151,9 @@ Before sending, delete:
 3. Any "by the way" sidebar.
 4. Any detail that exceeds the dial level.
 5. Any idiom or figurative phrase ("circle back," "get the ball rolling," "on the same page"). Replace with the literal action.
+6. Any jargon that appears before its plain-language version (rule 11).
+7. Any chunk that states a verdict without its reason (rule 12).
+8. Any softened limitation. Replace it with the plain limit and its evidence (rule 13).
 
 Then verify: if the reader reads only the clean summary and the last line, do they know (a) what just happened, and (b) what to do next?
 
